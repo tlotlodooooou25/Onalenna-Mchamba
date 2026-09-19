@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Happy 20th Birthday Baby 💜</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+
+            font-family: Georgia, "Times New Roman", serif;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #eee6ff,
+                    #e5d5ff,
+                    #f7f1ff
+                );
+
+            color: #4b356b;
+
+            overflow-x: hidden;
+        }
+
+
+        /* FLOATING DECORATIONS */
+
+        .decorations {
+            position: fixed;
+            inset: 0;
+
+            pointer-events: none;
+
+            overflow: hidden;
+
+            z-index: 0;
+        }
+
+
+        .heart {
+            position: absolute;
+
+            font-size: 20px;
+
+            opacity: 0.35;
+
+            animation: float 8s infinite ease-in-out;
+        }
+
+
+        .heart:nth-child(1) {
+            left: 8%;
+            top: 15%;
+            animation-delay: 0s;
+        }
+
+        .heart:nth-child(2) {
+            left: 85%;
+            top: 20%;
+            animation-delay: 2s;
+        }
+
+        .heart:nth-child(3) {
+            left: 15%;
+            top: 75%;
+            animation-delay: 4s;
+        }
+
+        .heart:nth-child(4) {
+            left: 90%;
+            top: 75%;
+            animation-delay: 1s;
+        }
+
+        .heart:nth-child(5) {
+            left: 50%;
+            top: 10%;
+            animation-delay: 3s;
+        }
+
+
+        /* MAIN */
+
+        .container {
+            position: relative;
+
+            z-index: 1;
+
+            width: min(900px, 92%);
+
+            margin: auto;
+
+            padding: 70px 0;
+        }
+
+
+        /* TITLE */
+
+        .title {
+            text-align: center;
+
+            margin-bottom: 40px;
+
+            animation: fadeDown 1.2s ease;
+        }
+
+
+        .title h1 {
+            font-size: clamp(2.3rem, 6vw, 4.5rem);
+
+            color: #6946a5;
+
+            text-shadow:
+                0 3px 15px rgba(105, 70, 165, 0.2);
+
+            margin-bottom: 12px;
+        }
+
+
+        .title p {
+            font-size: 1.2rem;
+
+            color: #76588f;
+        }
+
+
+        /* LETTER */
+
+        .letter {
+            background: rgba(255, 255, 255, 0.72);
+
+            backdrop-filter: blur(12px);
+
+            border: 1px solid rgba(255, 255, 255, 0.8);
+
+            border-radius: 30px;
+
+            padding: clamp(30px, 6vw, 60px);
+
+            box-shadow:
+                0 20px 60px rgba(90, 55, 130, 0.15);
+
+            animation: fadeUp 1.5s ease;
+
+            line-height: 1.9;
+
+            font-size: 1.08rem;
+        }
+
+
+        .letter p {
+            margin-bottom: 25px;
+        }
+
+
+        .highlight {
+            color: #7046a8;
+
+            font-weight: bold;
+        }
+
+
+        /* ENDING */
+
+        .ending {
+            text-align: center;
+
+            margin-top: 35px;
+
+            font-size: 1.15rem;
+
+            color: #7046a8;
+        }
+
+
+        .signature {
+            margin-top: 15px;
+
+            font-size: 1.4rem;
+
+            font-weight: bold;
+
+            color: #603995;
+        }
+
+
+        /* CONTINUE BUTTON */
+
+        .continue {
+            display: block;
+
+            width: fit-content;
+
+            margin: 45px auto 0;
+
+            padding: 14px 32px;
+
+            border-radius: 30px;
+
+            border: none;
+
+            background: #8c63bd;
+
+            color: white;
+
+            text-decoration: none;
+
+            font-family: inherit;
+
+            font-size: 1rem;
+
+            cursor: pointer;
+
+            box-shadow:
+                0 8px 25px rgba(100, 60, 150, 0.25);
+
+            transition: 0.3s ease;
+        }
+
+
+        .continue:hover {
+            transform: translateY(-4px);
+
+            background: #7650a8;
+
+            box-shadow:
+                0 12px 30px rgba(100, 60, 150, 0.35);
+        }
+
+
+        /* ANIMATIONS */
+
+        @keyframes fadeDown {
+
+            from {
+                opacity: 0;
+
+                transform: translateY(-30px);
+            }
+
+            to {
+                opacity: 1;
+
+                transform: translateY(0);
+            }
+        }
+
+
+        @keyframes fadeUp {
+
+            from {
+                opacity: 0;
+
+                transform: translateY(40px);
+            }
+
+            to {
+                opacity: 1;
+
+                transform: translateY(0);
+            }
+        }
+
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform:
+                    translateY(0)
+                    rotate(0deg);
+            }
+
+            50% {
+                transform:
+                    translateY(-25px)
+                    rotate(10deg);
+            }
+        }
+
+
+        /* PHONE */
+
+        @media (max-width: 600px) {
+
+            .container {
+                padding: 45px 0;
+            }
+
+            .letter {
+                padding: 28px 22px;
+
+                font-size: 1rem;
+
+                line-height: 1.8;
+            }
+
+            .title h1 {
+                font-size: 2.5rem;
+            }
+
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+    <!-- FLOATING HEARTS -->
+
+    <div class="decorations">
+
+        <div class="heart">💜</div>
+        <div class="heart">♡</div>
+        <div class="heart">💜</div>
+        <div class="heart">♡</div>
+        <div class="heart">💜</div>
+
+    </div>
+
+
+    <!-- MAIN CONTENT -->
+
+    <main class="container">
+
+
+        <header class="title">
+
+            <h1>
+                Happy 20th Birthday, Baby 💜
+            </h1>
+
+            <p>
+                A new chapter begins...
+            </p>
+
+        </header>
+
+
+        <!-- LETTER -->
+
+        <section class="letter">
+
+
+            <p>
+                As you step into this new chapter of your
+                <span class="highlight">20s</span>,
+                I want to wish you all the best, abundance,
+                prosperity and happiness! 🥹❤️
+            </p>
+
+
+            <p>
+                I still remember the first time I saw you.
+                You blew me away and from there, I knew
+                <span class="highlight">
+                    this one is the one for me.
+                </span>
+                I love you so much and I want you to always
+                know that you're loved. ❤️
+            </p>
+
+
+            <p>
+                Please continue being this gentle, sweet and
+                loving Onalenna. Don't let the world and its
+                imperfections change you. I love how cool and
+                secure you make me feel, a real definition of
+                <span class="highlight">
+                    "to fight for."
+                </span>
+                🥹🤣
+            </p>
+
+
+            <p>
+                As you enter this new chapter, I hope you
+                continue to grow into the beautiful woman
+                you're meant to become. I hope you achieve
+                everything you've been praying and working
+                for, and that life gives you countless reasons
+                to smile.
+            </p>
+
+
+            <p>
+                May this new decade bring you beautiful
+                memories, new opportunities, genuine happiness
+                and all the love your heart can hold. ❤️
+            </p>
+
+
+            <p>
+                And no matter how much life changes, I hope
+                you never forget how special you are to me.
+                I'll always be grateful that our paths crossed,
+                and I'm excited to see all the beautiful things
+                that are waiting for you.
+            </p>
+
+
+            <div class="ending">
+
+                <p>
+                    Here's to 20, to you, to us, and to many
+                    more beautiful moments together. 🥂💜
+                </p>
+
+                <div class="signature">
+                    Happy birthday, my baby. ❤️
+                </div>
+
+                <div class="signature">
+                    I love you.
+                </div>
+
+            </div>
+
+
+        </section>
+
+
+        <!-- NEXT PAGE -->
+
+        <a href="page3.html" class="continue">
+            Continue 💜
+        </a>
+
+
+    </main>
+
+
+</body>
+
+</html>
