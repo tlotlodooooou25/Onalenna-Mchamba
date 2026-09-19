@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>So... What Do You Want? 🎁</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+
+            font-family: Georgia, "Times New Roman", serif;
+
+            background:
+                radial-gradient(circle at top left, #f5edff, transparent 40%),
+                radial-gradient(circle at bottom right, #dcc4ff, transparent 45%),
+                linear-gradient(135deg, #eee4ff, #f8f3ff);
+
+            color: #50386d;
+
+            padding: 50px 20px;
+
+            overflow-x: hidden;
+        }
+
+
+        /* FLOATING DECORATION */
+
+        .decorations {
+            position: fixed;
+            inset: 0;
+
+            pointer-events: none;
+
+            overflow: hidden;
+        }
+
+
+        .sparkle {
+            position: absolute;
+
+            color: #9b72c5;
+
+            opacity: 0.35;
+
+            font-size: 25px;
+
+            animation: float 6s ease-in-out infinite;
+        }
+
+
+        .sparkle:nth-child(1) {
+            top: 12%;
+            left: 8%;
+        }
+
+        .sparkle:nth-child(2) {
+            top: 20%;
+            right: 10%;
+            animation-delay: 1s;
+        }
+
+        .sparkle:nth-child(3) {
+            bottom: 15%;
+            left: 12%;
+            animation-delay: 2s;
+        }
+
+        .sparkle:nth-child(4) {
+            bottom: 10%;
+            right: 12%;
+            animation-delay: 3s;
+        }
+
+
+        /* CONTAINER */
+
+        .container {
+            position: relative;
+
+            z-index: 1;
+
+            width: min(800px, 94%);
+
+            margin: auto;
+
+            text-align: center;
+        }
+
+
+        /* HEADING */
+
+        .heading {
+            animation: fadeDown 1s ease;
+
+            margin-bottom: 40px;
+        }
+
+
+        .heading .emoji {
+            font-size: 3.5rem;
+
+            margin-bottom: 15px;
+        }
+
+
+        h1 {
+            font-size: clamp(2.3rem, 6vw, 4rem);
+
+            color: #7046a8;
+
+            margin-bottom: 12px;
+        }
+
+
+        .subtitle {
+            font-size: 1.15rem;
+
+            color: #765c8e;
+        }
+
+
+        /* PRESENT BOX */
+
+        .present-box {
+            background: rgba(255, 255, 255, 0.72);
+
+            backdrop-filter: blur(14px);
+
+            border: 1px solid rgba(255, 255, 255, 0.8);
+
+            border-radius: 30px;
+
+            padding: 35px 25px;
+
+            box-shadow:
+                0 20px 55px rgba(80, 45, 120, 0.15);
+
+            animation: fadeUp 1.2s ease;
+        }
+
+
+        /* TABS */
+
+        .tabs {
+            display: grid;
+
+            grid-template-columns: repeat(2, 1fr);
+
+            gap: 18px;
+
+            max-width: 600px;
+
+            margin: auto;
+        }
+
+
+        .tab {
+            min-height: 75px;
+
+            padding: 15px;
+
+            border: 2px solid #d7bdf5;
+
+            border-radius: 20px;
+
+            background: rgba(244, 235, 255, 0.8);
+
+            color: #684593;
+
+            font-family: inherit;
+
+            font-size: 1.15rem;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+            transition: 0.3s ease;
+        }
+
+
+        .tab:hover {
+            transform: translateY(-5px);
+
+            background: #e5d2ff;
+
+            box-shadow:
+                0 10px 25px rgba(100, 60, 150, 0.15);
+        }
+
+
+        .tab.active {
+            background: #8c63bd;
+
+            color: white;
+
+            border-color: #8c63bd;
+        }
+
+
+        /* RESPONSE */
+
+        .response {
+            margin-top: 30px;
+
+            min-height: 100px;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            padding: 25px;
+
+            border-radius: 20px;
+
+            background: rgba(246, 239, 255, 0.9);
+
+            color: #60447d;
+
+            font-size: 1.15rem;
+
+            line-height: 1.7;
+
+            animation: fadeIn 0.4s ease;
+        }
+
+
+        .response.hidden {
+            display: none;
+        }
+
+
+        /* FINAL MESSAGE */
+
+        .limit {
+            margin-top: 30px;
+
+            font-size: 1.2rem;
+
+            font-weight: bold;
+
+            color: #7046a8;
+        }
+
+
+        /* CONTINUE */
+
+        .continue {
+            display: inline-block;
+
+            margin-top: 35px;
+
+            padding: 14px 32px;
+
+            border-radius: 30px;
+
+            background: #8c63bd;
+
+            color: white;
+
+            text-decoration: none;
+
+            box-shadow:
+                0 10px 25px rgba(100, 60, 150, 0.25);
+
+            transition: 0.3s ease;
+        }
+
+
+        .continue:hover {
+            transform: translateY(-4px);
+
+            background: #7650a8;
+        }
+
+
+        /* ANIMATIONS */
+
+        @keyframes fadeDown {
+
+            from {
+                opacity: 0;
+                transform: translateY(-25px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+        }
+
+
+        @keyframes fadeUp {
+
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+        }
+
+
+        @keyframes fadeIn {
+
+            from {
+                opacity: 0;
+                transform: scale(0.96);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+
+        }
+
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-15px);
+            }
+
+        }
+
+
+        /* PHONE */
+
+        @media (max-width: 600px) {
+
+            .tabs {
+                grid-template-columns: 1fr;
+            }
+
+            .present-box {
+                padding: 25px 18px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- DECORATIONS -->
+
+    <div class="decorations">
+
+        <div class="sparkle">✦</div>
+        <div class="sparkle">♡</div>
+        <div class="sparkle">✦</div>
+        <div class="sparkle">💜</div>
+
+    </div>
+
+
+    <main class="container">
+
+
+        <!-- HEADING -->
+
+        <header class="heading">
+
+            <div class="emoji">
+                🎁
+            </div>
+
+            <h1>
+                What do you want as a present? 🤭
+            </h1>
+
+            <p class="subtitle">
+                Choose wisely... I'm watching. 😂
+            </p>
+
+        </header>
+
+
+        <!-- OPTIONS -->
+
+        <section class="present-box">
+
+
+            <div class="tabs">
+
+
+                <button
+                    class="tab"
+                    onclick="showAnswer(1, this)"
+                >
+                    🎁 ?
+                </button>
+
+
+                <button
+                    class="tab"
+                    onclick="showAnswer(2, this)"
+                >
+                    🎀 ?
+                </button>
+
+
+                <button
+                    class="tab"
+                    onclick="showAnswer(3, this)"
+                >
+                    🍫 ?
+                </button>
+
+
+                <button
+                    class="tab"
+                    onclick="showAnswer(4, this)"
+                >
+                    💜 ?
+                </button>
+
+
+            </div>
+
+
+            <!-- ANSWER -->
+
+            <div
+                id="response"
+                class="response hidden"
+            ></div>
+
+
+            <div class="limit">
+                Ande! R100 limit, nxl 😏😂
+            </div>
+
+
+            <a
+                href="page5.html"
+                class="continue"
+            >
+                Continue 💜
+            </a>
+
+
+        </section>
+
+
+    </main>
+
+
+    <script>
+
+        function showAnswer(number, button) {
+
+            const response =
+                document.getElementById("response");
+
+
+            document
+                .querySelectorAll(".tab")
+                .forEach(tab => {
+                    tab.classList.remove("active");
+                });
+
+
+            button.classList.add("active");
+
+
+            let message = "";
+
+
+            if (number === 1) {
+
+                message =
+                    "Ah joh nna akenang akenang 🤣";
+
+            }
+
+
+            if (number === 2) {
+
+                message =
+                    "Look at you hunting and hunting for a present, akena selo! 🤣";
+
+            }
+
+
+            if (number === 3) {
+
+                message =
+                    "Okay, chocolate? 😔<br><br>Hao tlo e ketsa difficult mo!";
+
+            }
+
+
+            if (number === 4) {
+
+                message =
+                    "Okay, you have the freedom to choose, update me. 😭";
+
+            }
+
+
+            response.innerHTML = message;
+
+            response.classList.remove("hidden");
+
+
+            response.style.animation = "none";
+
+            response.offsetHeight;
+
+            response.style.animation =
+                "fadeIn 0.4s ease";
+
+        }
+
+    </script>
+
+
+</body>
+
+</html>
