@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>For You, My Baby 💜</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            padding: 25px;
+
+            font-family: Georgia, "Times New Roman", serif;
+
+            background:
+                radial-gradient(
+                    circle at center,
+                    #f8f0ff 0%,
+                    #ead9ff 45%,
+                    #d9c0f5 100%
+                );
+
+            color: #51366c;
+
+            overflow: hidden;
+        }
+
+
+        /* BACKGROUND DECORATION */
+
+        .background {
+            position: fixed;
+
+            inset: 0;
+
+            pointer-events: none;
+
+            overflow: hidden;
+        }
+
+
+        .heart {
+            position: absolute;
+
+            color: #a77dcc;
+
+            opacity: 0.3;
+
+            animation: float 7s ease-in-out infinite;
+        }
+
+
+        .heart:nth-child(1) {
+            top: 10%;
+            left: 8%;
+            font-size: 30px;
+        }
+
+
+        .heart:nth-child(2) {
+            top: 18%;
+            right: 10%;
+            font-size: 22px;
+            animation-delay: 2s;
+        }
+
+
+        .heart:nth-child(3) {
+            bottom: 12%;
+            left: 12%;
+            font-size: 25px;
+            animation-delay: 4s;
+        }
+
+
+        .heart:nth-child(4) {
+            bottom: 18%;
+            right: 9%;
+            font-size: 32px;
+            animation-delay: 1s;
+        }
+
+
+        /* MAIN CARD */
+
+        .card {
+
+            position: relative;
+
+            width: min(700px, 94%);
+
+            padding: 55px 45px;
+
+            text-align: center;
+
+            background:
+                rgba(255, 255, 255, 0.72);
+
+            backdrop-filter: blur(15px);
+
+            border: 1px solid
+                rgba(255, 255, 255, 0.9);
+
+            border-radius: 35px;
+
+            box-shadow:
+                0 25px 70px
+                rgba(82, 48, 120, 0.2);
+
+            animation:
+                appear 1.5s ease;
+        }
+
+
+        /* HEART */
+
+        .big-heart {
+
+            font-size: 5rem;
+
+            margin-bottom: 20px;
+
+            animation:
+                heartbeat 2s ease-in-out infinite;
+        }
+
+
+        /* TITLE */
+
+        h1 {
+
+            font-size:
+                clamp(2rem, 6vw, 3.5rem);
+
+            color: #7046a8;
+
+            margin-bottom: 30px;
+
+        }
+
+
+        /* MESSAGE */
+
+        .message {
+
+            font-size:
+                clamp(1.05rem, 2.5vw, 1.3rem);
+
+            line-height: 1.9;
+
+            color: #604575;
+
+        }
+
+
+        .message p {
+
+            margin-bottom: 25px;
+
+        }
+
+
+        .highlight {
+
+            color: #7046a8;
+
+            font-weight: bold;
+
+        }
+
+
+        /* FINAL LOVE */
+
+        .final-love {
+
+            margin-top: 35px;
+
+            font-size: 1.7rem;
+
+            color: #7046a8;
+
+            font-weight: bold;
+
+        }
+
+
+        .signature {
+
+            margin-top: 15px;
+
+            font-size: 1rem;
+
+            color: #806496;
+
+        }
+
+
+        /* ANIMATIONS */
+
+        @keyframes appear {
+
+            from {
+
+                opacity: 0;
+
+                transform:
+                    translateY(40px)
+                    scale(0.96);
+
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform:
+                    translateY(0)
+                    scale(1);
+
+            }
+
+        }
+
+
+        @keyframes heartbeat {
+
+            0%,
+            100% {
+
+                transform: scale(1);
+
+            }
+
+            50% {
+
+                transform: scale(1.12);
+
+            }
+
+        }
+
+
+        @keyframes float {
+
+            0%,
+            100% {
+
+                transform:
+                    translateY(0)
+                    rotate(0deg);
+
+            }
+
+            50% {
+
+                transform:
+                    translateY(-25px)
+                    rotate(8deg);
+
+            }
+
+        }
+
+
+        /* MOBILE */
+
+        @media (max-width: 600px) {
+
+            .card {
+
+                padding: 40px 25px;
+
+            }
+
+            .big-heart {
+
+                font-size: 4rem;
+
+            }
+
+            .message {
+
+                line-height: 1.8;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- FLOATING HEARTS -->
+
+    <div class="background">
+
+        <div class="heart">💜</div>
+
+        <div class="heart">♡</div>
+
+        <div class="heart">💜</div>
+
+        <div class="heart">♡</div>
+
+    </div>
+
+
+    <!-- FINAL MESSAGE -->
+
+    <main class="card">
+
+
+        <div class="big-heart">
+            💜
+        </div>
+
+
+        <h1>
+            One last thing...
+        </h1>
+
+
+        <div class="message">
+
+
+            <p>
+                Enjoy your day,
+                <span class="highlight">
+                    mablock’ana, maunfollow’anq
+                </span>
+                🥹❤️
+            </p>
+
+
+            <p>
+                I love you so much. Please promise you'll
+                forever be here with me, because I honestly
+                want to do this <span class="highlight">
+                live thing with you.
+                </span>
+            </p>
+
+
+            <p>
+                I want to experience the good days, the
+                difficult days, the random days, the laughter,
+                the memories and everything in between —
+                <span class="highlight">
+                with you.
+                </span>
+            </p>
+
+
+            <div class="final-love">
+                I love you, baby. 🥹❤️
+            </div>
+
+
+            <div class="signature">
+                Happy 20th birthday, my love. 💜
+            </div>
+
+
+        </div>
+
+
+    </main>
+
+
+</body>
+
+</html>
