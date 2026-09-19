@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>My Favourite Pictures of You 💜</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+
+            font-family: Georgia, "Times New Roman", serif;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #eee6ff,
+                    #dfccff,
+                    #f8f3ff
+                );
+
+            color: #4d3768;
+
+            padding: 50px 20px 70px;
+
+            overflow-x: hidden;
+        }
+
+
+        /* FLOATING HEARTS */
+
+        .background-hearts {
+            position: fixed;
+
+            inset: 0;
+
+            pointer-events: none;
+
+            overflow: hidden;
+
+            z-index: 0;
+        }
+
+
+        .heart {
+            position: absolute;
+
+            font-size: 22px;
+
+            opacity: 0.25;
+
+            animation: floatHeart 7s ease-in-out infinite;
+        }
+
+
+        .heart:nth-child(1) {
+            left: 7%;
+            top: 15%;
+        }
+
+        .heart:nth-child(2) {
+            right: 8%;
+            top: 25%;
+            animation-delay: 2s;
+        }
+
+        .heart:nth-child(3) {
+            left: 15%;
+            bottom: 15%;
+            animation-delay: 4s;
+        }
+
+        .heart:nth-child(4) {
+            right: 15%;
+            bottom: 10%;
+            animation-delay: 1s;
+        }
+
+
+        /* MAIN */
+
+        .container {
+            position: relative;
+
+            z-index: 1;
+
+            max-width: 1100px;
+
+            margin: auto;
+        }
+
+
+        /* TITLE */
+
+        .heading {
+            text-align: center;
+
+            margin-bottom: 50px;
+
+            animation: fadeDown 1.2s ease;
+        }
+
+
+        .heading h1 {
+            font-size: clamp(2.2rem, 5vw, 4rem);
+
+            color: #7046a8;
+
+            margin-bottom: 15px;
+        }
+
+
+        .heading p {
+            font-size: 1.15rem;
+
+            color: #765c8e;
+
+            font-style: italic;
+        }
+
+
+        /* PHOTO GRID */
+
+        .gallery {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 28px;
+        }
+
+
+        /* PHOTO CARD */
+
+        .card {
+            background:
+                rgba(255, 255, 255, 0.75);
+
+            padding: 12px;
+
+            border-radius: 24px;
+
+            box-shadow:
+                0 15px 40px
+                rgba(83, 52, 120, 0.18);
+
+            backdrop-filter: blur(10px);
+
+            transition:
+                transform 0.4s ease,
+                box-shadow 0.4s ease;
+
+            animation: fadeUp 1.2s ease;
+        }
+
+
+        .card:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+
+        .card:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+
+        .card:hover {
+            transform:
+                translateY(-10px)
+                rotate(1deg);
+
+            box-shadow:
+                0 25px 50px
+                rgba(83, 52, 120, 0.25);
+        }
+
+
+        /* IMAGES */
+
+        .card img {
+            width: 100%;
+
+            height: 430px;
+
+            object-fit: cover;
+
+            border-radius: 18px;
+
+            display: block;
+        }
+
+
+        /* CAPTIONS */
+
+        .caption {
+            padding: 22px 15px 18px;
+
+            text-align: center;
+
+            font-size: 1.05rem;
+
+            line-height: 1.6;
+
+            color: #60447d;
+        }
+
+
+        .caption strong {
+            color: #7046a8;
+        }
+
+
+        /* NEXT BUTTON */
+
+        .continue {
+            display: block;
+
+            width: fit-content;
+
+            margin: 55px auto 0;
+
+            padding: 15px 34px;
+
+            border-radius: 30px;
+
+            background: #8c63bd;
+
+            color: white;
+
+            text-decoration: none;
+
+            font-size: 1rem;
+
+            box-shadow:
+                0 10px 25px
+                rgba(100, 60, 150, 0.25);
+
+            transition: 0.3s ease;
+        }
+
+
+        .continue:hover {
+            transform: translateY(-4px);
+
+            background: #7650a8;
+        }
+
+
+        /* ANIMATIONS */
+
+        @keyframes fadeDown {
+
+            from {
+                opacity: 0;
+
+                transform:
+                    translateY(-30px);
+            }
+
+            to {
+                opacity: 1;
+
+                transform:
+                    translateY(0);
+            }
+        }
+
+
+        @keyframes fadeUp {
+
+            from {
+                opacity: 0;
+
+                transform:
+                    translateY(40px);
+            }
+
+            to {
+                opacity: 1;
+
+                transform:
+                    translateY(0);
+            }
+        }
+
+
+        @keyframes floatHeart {
+
+            0%,
+            100% {
+                transform:
+                    translateY(0)
+                    rotate(0deg);
+            }
+
+            50% {
+                transform:
+                    translateY(-25px)
+                    rotate(10deg);
+            }
+        }
+
+
+        /* MOBILE */
+
+        @media (max-width: 800px) {
+
+            .gallery {
+                grid-template-columns: 1fr;
+            }
+
+
+            .card {
+                max-width: 500px;
+
+                width: 100%;
+
+                margin: auto;
+            }
+
+
+            .card img {
+                height: auto;
+
+                max-height: 600px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- FLOATING HEARTS -->
+
+    <div class="background-hearts">
+
+        <div class="heart">💜</div>
+
+        <div class="heart">♡</div>
+
+        <div class="heart">💜</div>
+
+        <div class="heart">♡</div>
+
+    </div>
+
+
+    <main class="container">
+
+
+        <!-- TITLE -->
+
+        <header class="heading">
+
+            <h1>
+                My favourite pictures of you 📸💜
+            </h1>
+
+            <p>
+                Because somehow you manage to look beautiful
+                in every single one. 🥹
+            </p>
+
+        </header>
+
+
+        <!-- GALLERY -->
+
+        <section class="gallery">
+
+
+            <!-- PHOTO 1 -->
+
+            <article class="card">
+
+                <img
+                    src="photo1.jpg"
+                    alt="A favourite picture of Onalenna"
+                >
+
+                <div class="caption">
+
+                    <strong>
+                        The Onalenna I fell in love with. ❤️
+                    </strong>
+
+                </div>
+
+            </article>
+
+
+            <!-- PHOTO 2 -->
+
+            <article class="card">
+
+                <img
+                    src="photo2.jpg"
+                    alt="Onalenna looking cute"
+                >
+
+                <div class="caption">
+
+                    <strong>
+                        NWU within… Look at you looking all cute
+                        and stuff. Le fresher joh! 😂💜
+                    </strong>
+
+                </div>
+
+            </article>
+
+
+            <!-- PHOTO 3 -->
+
+            <article class="card">
+
+                <img
+                    src="photo3.jpg"
+                    alt="A favourite picture of Onalenna"
+                >
+
+                <div class="caption">
+
+                    <strong>
+                        Here I can confidently say you're mine. ❤️
+                    </strong>
+
+                </div>
+
+            </article>
+
+
+        </section>
+
+
+        <!-- NEXT PAGE -->
+
+        <a
+            href="page4.html"
+            class="continue"
+        >
+            Continue 💜
+        </a>
+
+
+    </main>
+
+
+</body>
+
+</html>
